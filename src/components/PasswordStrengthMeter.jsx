@@ -39,10 +39,10 @@ const PasswordStrengthMeter = ({ password }) => {
   const strengthText = getStrengthText(score);
 
   return (
-    <div className={`duration-medium2 transition-opacity`}>
+    <div className={`transition-opacity duration-medium2`}>
       {/* Text Score */}
       <div className='mb-1 flex justify-between'>
-        <span className='text-sm font-medium text-gray-700'>
+        <span className='text-sm font-medium text-gray-700 dark:text-dark-tertiary'>
           Password Strength:
         </span>
         <span

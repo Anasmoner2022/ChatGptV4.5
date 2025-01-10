@@ -112,7 +112,7 @@ const Login = () => {
 
               <p className='text-right text-bodyMedium text-light-onSurfaceVariant dark:text-dark-onSurfaceVariant'>
                 <Link
-                  to={'/login'}
+                  to={'/reset-link'}
                   className='link ms-1 inline-block text-light-onSurface dark:text-dark-onSurface'
                 >
                   Forgot Password?
