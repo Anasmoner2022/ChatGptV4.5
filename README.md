@@ -58,11 +58,11 @@ src/
 ### Steps
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/astramind-ai.git
+   git clone https://github.com/Anasmoner2022/ChatGptV4.5
    ```
 2. Navigate to the project directory:
    ```bash
-   cd astramind-ai
+   cd chatgptv4.5
    ```
 3. Install dependencies:
    ```bash

@@ -11,6 +11,12 @@ import Login from '../pages/Login';
 import Register from '../pages/Register';
 import ForgotPassword from '../pages/ForgotPassword';
 
+/**
+ * Loaders
+ */
+import RegisterLoader from '../routes/loader/registerLoder';
+import LoginLoader from '../routes/loader/loginLoader';
+
 const routes = createBrowserRouter([
   {
     path: '/',
@@ -19,10 +25,12 @@ const routes = createBrowserRouter([
   {
     path: '/login',
     element: <Login />,
+    loader: LoginLoader,
   },
   {
     path: '/register',
     element: <Register />,
+    loader: RegisterLoader,
   },
   {
     path: '/forgot-password',
