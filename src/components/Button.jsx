@@ -1,6 +1,8 @@
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { Loader2 } from 'lucide-react';
+import { Loader2, Plus } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
 const Button = ({
   children,
@@ -27,7 +29,7 @@ const Button = ({
       'text-black bg-transparent border border-gray-300 rounded shadow-sm hover:bg-gray-100 focus:ring-gray-500',
     ghost:
       'text-black bg-transparent border border-transparent rounded shadow-sm hover:bg-gray-100 focus:ring-gray-500',
-    link: 'text-black bg-transparent border-none rounded shadow-none hover:underline focus:ring-gray-500',
+    link: 'bg-transparent border-none rounded shadow-none hover:underline focus:ring-gray-500',
     withIcon:
       'text-white bg-light-surfaceDim dark:bg-dark-surfaceBright border border-transparent rounded shadow-sm hover:bg-gray-700 focus:ring-gray-500 flex justify-center gap-2',
   };
@@ -35,6 +37,7 @@ const Button = ({
     small: 'px-3 py-1 text-sm',
     medium: 'px-4 py-2 text-base',
     large: 'px-6 py-3 text-lg',
+    none: '',
   };
   const disabledStyles = 'opacity-50 cursor-not-allowed';
   const loadingStyles =
@@ -79,6 +82,43 @@ const Button = ({
   );
 };
 
+/**
+ * Icon Button
+ */
+const IconButton = ({ classes = '', icon, size = '', children, ...rest }) => {
+  return (
+    <motion.button
+      className={`icon-btn ${size} ${classes}`}
+      {...rest}
+    >
+      {children}
+
+      {!children && <span className='icon'>{icon}</span>}
+
+      <div className='state-layer'></div>
+    </motion.button>
+  );
+};
+
+/**
+ * Extended Fab
+ */
+const ExtendedFab = ({ href, text, classes = '', ...rest }) => {
+  return (
+    <Link
+      to={href}
+      className={`extended-fab ${classes}`}
+      {...rest}
+    >
+      <span className='inline-block'>
+        <Plus />
+      </span>
+      <span className='truncate'>{text}</span>
+      <span className='state-layer'></span>
+    </Link>
+  );
+};
+
 Button.propTypes = {
   children: PropTypes.node.isRequired,
   onClick: PropTypes.func,
@@ -92,7 +132,7 @@ Button.propTypes = {
     'link',
     'withIcon',
   ]),
-  size: PropTypes.oneOf(['small', 'medium', 'large']),
+  size: PropTypes.oneOf(['small', 'medium', 'large', 'none']),
   disabled: PropTypes.bool,
   loading: PropTypes.bool,
   className: PropTypes.string,
@@ -109,4 +149,17 @@ Button.defaultProps = {
   icon: null,
 };
 
-export default Button;
+IconButton.propTypes = {
+  classes: PropTypes.string,
+  icon: PropTypes.node,
+  size: PropTypes.string,
+  children: PropTypes.node,
+};
+
+ExtendedFab.propTypes = {
+  href: PropTypes.string,
+  text: PropTypes.string,
+  classes: PropTypes.string,
+};
+
+export { Button, IconButton, ExtendedFab };

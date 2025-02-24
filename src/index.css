@@ -79,6 +79,160 @@
   .link {
     @apply transition-colors duration-short3 ease-standard hover:text-light-primary hover:underline dark:hover:text-dark-primary;
   }
+
+  /* Progress Bar */
+  .linear-progress {
+    @apply mx-1 h-1 origin-top overflow-hidden rounded-full bg-light-secondaryContainer dark:bg-dark-secondaryContainer;
+  }
+
+  .linear-progress .active-indicator {
+    @apply h-[inherit] bg-light-primary dark:bg-dark-primary rounded-full origin-right -translate-x-full;
+  }
+
+  /**
+   * Icon Button
+   */
+  .icon-btn {
+    @apply grid h-10 w-10 place-items-center rounded-full text-light-onSurfaceVariant dark:text-dark-onSurfaceVariant;
+  }
+
+  .icon-btn:disabled {
+    @apply text-light-onSurfaceVariant/[0.38] dark:text-dark-onSurfaceVariant/[0.38] cursor-not-allowed;
+  }
+
+  .icon-btn.small {
+    @apply h-7 min-h-7 w-7 min-w-7;
+  }
+
+  .icon-btn.large {
+    @apply h-12 min-h-12 w-12 min-w-12;
+  }
+
+  .icon-btn.small .icon {
+    @apply text-[18px];
+  }
+
+  /**
+  * Avatar
+  */
+  .avatar {
+    @apply aspect-square bg-light-surfaceContainerHighest dark:bg-dark-surfaceContainerHighest min-w-[32px] max-w-[32px] overflow-hidden rounded-full;
+  }
+
+  /**
+  *Menu
+  */
+  .menu-wrapper {
+    @apply relative;
+  }
+
+  .menu {
+    @apply bg-light-surfaceContainer dark:bg-dark-surfaceContainer absolute top-[calc(100%+4px)] right-0 min-w-[112px] max-w-[280px] py-2 rounded-extraSmall shadow-elevation2 z-20 origin-top-right scale-75 opacity-0 invisible transition-[transform,opacity,visibility] duration-short4 ease-standard;
+  }
+
+  .menu.active {
+    @apply visible scale-100 opacity-100;
+  }
+
+  .menu-item {
+    @apply flex h-12 w-full items-center px-3 text-labelLarge text-light-onSurface hover:bg-light-onSurfaceVariant/10 hover:text-light-onSurface dark:text-dark-onSurface dark:hover:bg-dark-onSurfaceVariant/10 dark:hover:text-dark-onSurface;
+  }
+
+  /**
+  * Sidebar
+  */
+  .sidebar {
+    @apply bg-light-surfaceContainer dark:bg-dark-surfaceContainerLow text-light-onSurface dark:text-dark-onSurface fixed top-0 left-0 h-dvh w-0 max-w-[80vw] rounded-e-large shadow-elevation1 overflow-hidden transition-[width] duration-short4 ease-emphasized z-40
+
+    /* Responsive for small screens */
+    sm:max-w-[320px]
+
+    /* Responsive for large screens */
+    lg:static lg:opacity-100 lg:visible lg:w-full lg:shadow-none lg:rounded-none;
+  }
+
+  .sidebar.active {
+    @apply w-[80vw] duration-medium2 ease-standardDecelerate
+
+    /* Responsive for small screens */
+    sm:w-[320px];
+  }
+
+  .sidebar-inner {
+    @apply h-full grid grid-rows-[max-content,max-content,1fr,max-content] grid-cols-1 px-3 opacity-0 transition-opacity duration-medium2
+    
+    /* Responsive for large screens */
+    lg:opacity-100;
+  }
+
+  .sidebar.active .sidebar-inner {
+    @apply opacity-100 delay-short2;
+  }
+
+  /*
+    * Overlay
+  */
+  .overlay {
+    @apply fixed top-0 left-0 w-full h-dvh z-30 bg-transparent invisible transition-colors
+
+    /* Responsive for large screen */
+    lg:hidden;
+  }
+
+  .overlay.active {
+    @apply visible bg-black/40;
+  }
+
+  /**
+   * Extended FAB
+   */
+  .extended-fab {
+    @apply bg-light-primaryContainer dark:bg-dark-primaryContainer text-light-onPrimaryContainer dark:text-dark-onPrimaryContainer text-labelLarge max-w-max flex items-center gap-2 h-[56px] ps-3 pe-4 rounded-large shadow-elevation1 transition-shadow duration-short3 ease-standard 
+    
+    hover:shadow-elevation2
+    hover:bg-light-surfaceContainerHigh/80 dark:hover:bg-dark-surfaceContainerHigh/80
+    
+    focus:shadow-elevation1;
+  }
+
+  .extended-fab[disabled] {
+    @apply bg-light-onSurface/[0.12] dark:bg-light-onSurface/[0.12] text-light-onSurface/[0.38] dark:text-dark-onSurface/[0.38] shadow-none pointer-events-none;
+  }
+
+  /**
+   *Navlink
+   */
+  .nav-link {
+    @apply flex h-9 items-center gap-3 rounded-full pe-10 ps-4 text-labelLarge transition-colors duration-short3 ease-standard hover:bg-light-onSurfaceVariant/10 hover:text-light-onSurfaceVariant dark:text-dark-onSurfaceVariant dark:hover:bg-dark-onSurfaceVariant/10 dark:hover:text-dark-onSurfaceVariant;
+  }
+
+  .nav-link.active {
+    @apply bg-light-onSecondaryContainer text-light-secondaryContainer dark:bg-dark-secondaryContainer dark:text-dark-onSurfaceVariant;
+  }
+
+
+  /**
+    * Prompt Field
+    */
+
+    .prompt-field-container {
+      @apply flex min-h-16 cursor-text items-center rounded-full bg-light-surfaceContainer p-2 dark:bg-dark-surfaceContainerHighest;
+    }
+    .prompt-field-container:hover {
+      @apply bg-light-surfaceContainerHighest/20 transition-all duration-75 ease-linear dark:bg-dark-surfaceContainerHighest/60;
+    }
+
+    .prompt-field {
+      @apply h-12 w-full relative outline-none grow mx-4 py-3 max-h-[230px] overflow-y-auto whitespace-pre-wrap text-bodyLarge text-light-onSurface dark:text-dark-onSurface
+
+      /* ::after */
+      after:content-[attr(data-placeholder)] after:absolute after:top-1/2 after:left-0 after:-translate-y-1/2 after:text-light-onSurfaceVariant/90 after:dark:text-dark-onSurfaceVariant/90 after:pointer-events-none;}
+
+  
+
+
+
+
 }
 
 @layer utilities {
