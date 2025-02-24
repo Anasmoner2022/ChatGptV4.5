@@ -18,7 +18,7 @@ import { account } from '../lib/appwrite';
 import { Banner } from '../assets/assets';
 import PageTitle from '../components/PageTitle';
 import FieldText from '../components/FieldText';
-import Button from '../components/Button';
+import { Button } from '../components/Button';
 import loginSchema from '../schemas/loginSchema';
 import AuthNavbar from '../components/AuthNavbar';
 

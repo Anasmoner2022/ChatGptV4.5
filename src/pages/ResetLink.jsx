@@ -8,7 +8,7 @@ import { account } from '../lib/appwrite';
 import { Banner } from '../assets/assets';
 import PageTitle from '../components/PageTitle';
 import FieldText from '../components/FieldText';
-import Button from '../components/Button';
+import { Button } from '../components/Button';
 import resetSchema from '../schemas/resetSchema';
 import AuthNavbar from '../components/AuthNavbar';
 import { useNavigate } from 'react-router-dom';
@@ -37,10 +37,13 @@ const ResetLink = () => {
     const email = data.email;
     setIsSubmitting(true);
     try {
-      await account.createRecovery(email, `${window.location.origin}/reset-password`);
+      await account.createRecovery(
+        email,
+        `${window.location.origin}/reset-password`,
+      );
       toast.success('Password reset link sent to your email');
 
-      navigate('/')
+      navigate('/');
     } catch (error) {
       toast.error(error.message);
     } finally {
@@ -63,7 +66,8 @@ const ResetLink = () => {
               Forgot your Password?
             </h2>
             <p className='mb-4 mt-1 px-2 text-center text-bodyLarge text-light-onSurfaceVariant dark:text-light-onPrimary'>
-              Enter your AstraMind Email and we will send you a link to reset your password
+              Enter your AstraMind Email and we will send you a link to reset
+              your password
             </p>
 
             <form

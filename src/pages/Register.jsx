@@ -20,7 +20,7 @@ import { Banner } from '../assets/assets';
 import PageTitle from '../components/PageTitle';
 import FieldText from '../components/FieldText';
 import PasswordStrengthMeter from '../components/PasswordStrengthMeter';
-import Button from '../components/Button';
+import { Button } from '../components/Button';
 import registerSchema from '../schemas/registerSchema';
 import AuthNavbar from '../components/AuthNavbar';
 // import Oauth from '../components/Oauth';

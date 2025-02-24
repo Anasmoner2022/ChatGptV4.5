@@ -19,11 +19,13 @@ import RegisterLoader from '../routes/loader/registerLoder';
 import LoginLoader from '../routes/loader/loginLoader';
 import resetPasswordloader from './loader/ResetPasswordloader';
 import forgotPasswordloader from './loader/forgotPasswordLoader';
+import appLoader from './loader/appLoader';
 
 const routes = createBrowserRouter([
   {
     path: '/',
     element: <App />,
+    loader: appLoader,
   },
   {
     path: '/login',
@@ -44,7 +46,7 @@ const routes = createBrowserRouter([
     path: '/reset-password',
     element: <ForgotPassword />,
     loader: forgotPasswordloader,
-  }
+  },
 ]);
 
 export default routes;

@@ -9,17 +9,17 @@ import { redirect } from 'react-router';
 import { account } from '../../lib/appwrite';
 
 const resetPasswordloader = async () => {
-    try {
-        // Attempt to retrieve the user's account information
-        const user = await account.get();
-        if (user) {
-            redirect('/');
-        }
-    } catch {
-        return null;
+  try {
+    // Attempt to retrieve the user's account information
+    const user = await account.get();
+    if (user) {
+      redirect('/');
     }
+  } catch {
+    return null;
+  }
 
-    return redirect('/');
+  return redirect('/');
 };
 
 export default resetPasswordloader;

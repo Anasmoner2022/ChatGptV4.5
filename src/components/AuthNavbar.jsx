@@ -5,17 +5,19 @@ function AuthNavbar() {
   return (
     <Link
       to={'/'}
-      className='mx-auto mb-5 w-20 pb-4 md:w-24 lg:mx-0 lg:w-32'
+      className='mx-auto mb-auto max-w-max lg:mx-0'
     >
       <img
         src={DarkLogo}
         className='hidden dark:block'
         alt='Dark Logo'
+        width={100}
       />
       <img
         src={LightLogo}
         className='dark:hidden'
         alt='Light Logo'
+        width={100}
       />
     </Link>
   );
